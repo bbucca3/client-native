@@ -12,13 +12,19 @@ var user = data.user;
 export default class App extends Component {
   constructor(props) {
     super(props);
-    console.log(user);
+    this.state = {
+    }
   }
+
   // user info axios calls
 
   render() {
     return (
-      <Drawer />
+      <Drawer screenProps={
+          {
+            openDrawer: () => console.log(this),
+          }
+        }/>
     );
   }
 }

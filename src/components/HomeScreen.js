@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button, FlatList, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView, Button, FlatList, TouchableOpacity, StatusBar, StyleSheet, Switch } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import PostPreview from './PostPreview.js';
@@ -10,26 +10,52 @@ var posts = data.subredditPosts;
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
-    console.log(posts);
+    this.state = {
+      snooze: false
+    }
+    this.hitSnooze = this.hitSnooze.bind(this);
   }
 
+  hitSnooze() {
+    this.setState({snooze: !this.state.snooze});
+    // this function needs to update the database
+  }
   // subreddit axios calls
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
-      <View>
+      <ScrollView >
+        <View style={styles.navBar}>
+          <Button style={styles.drawer} title="Drawer" onPress={() => this.props.navigation.navigate('DrawerOpen')} />
+          <Switch style={styles.snoozeButton} onValueChange={this.hitSnooze} value={this.state.snooze}/>
+        </View>
         <FlatList
           data={posts}
-          renderItem={ ({item}) => {
+          renderItem={({item}) => {
             return (
             <TouchableOpacity>
-              <PostPreview text={item.text} title={item.title} />
+              <PostPreview key={item.id} text={item.text} title={item.title} upvotes={item.upvotes} />
             </TouchableOpacity>
             )}
           }
         />
-      </View>
+    </ScrollView>
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+  navBar: {
+    height: 80,
+    paddingTop: 15,
+    // paddingHorizontal: 10,
+    borderColor: '#AAAAAA',
+    borderBottomWidth: 1,
+    backgroundColor: '#F5FCFF',
+  },
+  snoozeButton: {
+  },
+  drawer: {
+  }
+});

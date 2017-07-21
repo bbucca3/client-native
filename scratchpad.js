@@ -22,7 +22,7 @@ const fakeMessage1 = {
     timestamp:1500154759479.4531
   },
   subreddit_id: null,
-  upvote: 0
+  upvotes: 0
 };
 
 const fakeMessage2 = {
@@ -44,7 +44,7 @@ const fakeMessage2 = {
     timestamp:1500154759479.4531
   },
   subreddit_id: null,
-  upvote: 0
+  upvotes: 0
 }
 
 const sampleStore = {
@@ -67,6 +67,20 @@ const sampleStore = {
   },
   subredditPosts: [
     fakeMessage1,
+    fakeMessage2,
+    fakeMessage1,
+    fakeMessage2,
+    fakeMessage1,
+    fakeMessage2,
+    fakeMessage1,
+    fakeMessage2,
+    fakeMessage1,
+    fakeMessage2,
+    fakeMessage1,
+    fakeMessage2,
+    fakeMessage1,
+    fakeMessage2,
+    fakeMessage1,
     fakeMessage2
   ]
 }
@@ -87,27 +101,6 @@ const createUserData = {
 //    subreddit_id
 //  upvote default to 0
 //  send id back in response
-
-const createMessageData = {
-  user_id: null,
-  title: "some good hair",
-  text: "check out my son's hair collection",
-  post_id: null,
-  geotag: {
-    coords: {
-      altitudeAccuracy:-1,
-      accuracy:5,
-      heading:-1,
-      longitude:-122.406417,
-      altitude:0,
-      latitude:37.785834,
-      speed:-1
-    },
-    timestamp:1500154759479.4531
-  },
-  subreddit_id: null,
-  upvote: 0
-};
 
 // upvote
 //  send user_id (voter)

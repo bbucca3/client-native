@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, Button, FlatList } from 'react-native';
+import { StyleSheet, Text, ScrollView, Button, FlatList, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import UserSettings from './UserSettings.js';
